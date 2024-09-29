@@ -1,0 +1,28 @@
+.navbar-custom {
+    background-color: #343a40;
+}
+.navbar-custom .navbar-brand, .navbar-custom .nav-link {
+    color: white;
+}
+.card {
+    background-color: #212529;
+    color: #fff;
+    border: none;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card-img-top {
+    max-height: 250px;
+    object-fit: cover;
+}
+.text-white {
+    color: white !important;
+}
+.no-book-found {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font: bold 24px Georgia, serif;
+}
