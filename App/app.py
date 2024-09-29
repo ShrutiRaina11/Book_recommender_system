@@ -24,13 +24,12 @@ def index():
 
 @app.route('/recommend')
 def recommend_ui():
-    print("helo")
     return render_template('recommend.html', books_name=books_name)
 
 
-@app.route('/recommend_books', methods=['GET'])
+@app.route('/recommend_books', methods=['POST'])
 def recommend_books():
-    user_input = request.args.get('user_input')
+    user_input = request.form.get('user_input')
 
     if user_input not in books['Book-Title'].values:
         return render_template('recommend.html', books_name=books_name, message="No book found", user_input=user_input)
@@ -40,6 +39,7 @@ def recommend_books():
     books_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:11]
 
     suggestions = []
+
     for book_index in books_list:
         item = []
         temp_df = books[books['Book-Title'] == pvt.index[book_index[0]]].drop_duplicates('Book-Title')
